@@ -12,10 +12,10 @@
                         </div>
 
                         <span class="text-body-1 font-weight-light introduction pe-lg-10">
-                            With expertise in both front-end and back-end technologies, I enjoy transforming ideas into functional and visually appealing digital solutions. I thrive on tackling challenges and continuously learning new skills to stay ahead in the ever-evolving tech landscape.
+                            I am a full-stack web developer based from the Philippines with two years of hands-on experience in building dynamic web applications. I thrive on tackling challenges, continuously expanding my skill set, and staying updated with the latest in technology.
                         </span>
 
-                        <v-sheet color="transparent" class="text-grey-lighten-1">
+                        <div class="text-grey-lighten-1">
                             <div class="d-flex align-center ga-4 mb-6">
                                 <v-img src="@/assets/avatar.png" width="80"/>
 
@@ -36,12 +36,18 @@
                                     <span>{{ contact.text }}</span>
                                 </div>
                             </div>
-                        </v-sheet>
+                        </div>
+
+                        <a href="/resume.pdf" download>
+                            <v-btn variant="outlined" color="accent" height="45">
+                                Download CV
+                            </v-btn>
+                        </a>
                     </div>
                 </div>
             </v-col>
 
-            <v-col cols="12" lg="7">
+            <v-col cols="12" lg="7" class="fade-on-scroll ">
                 <section>
                     <p class="text-h6 mb-5">Tech Stack</p>
 
@@ -62,8 +68,8 @@
 
                     <v-row>
                         <v-col v-for="(project, iproject) in projects" :key="iproject" cols="12">
-                            <v-card variant="tonal" color="grey-darken-1" class="pa-5">
-                                <div class="d-flex align-start ga-10">
+                            <v-card  color="secondary" class="pa-5">
+                                <div class="d-flex align-start">
                                     <div class="text-grey-lighten-5 d-flex flex-column ga-8">
                                         <div>
                                             <p class="text-h6">{{ project.title }}</p>
@@ -71,9 +77,12 @@
                                             
                                             <v-divider class="border-opacity-25 my-3"></v-divider>
 
-                                            <span class="font-weight-light">
-                                                {{ project.content }}
-                                            </span>
+                                            <div class="d-flex flex-column flex-wrap ga-3 text-body-2 font-weight-light">
+                                                <div v-for="feature in project.features" :key="feature" class="d-flex align-center ga-2">
+                                                    <v-icon icon="mdi-circle-medium" size="x-small"/>
+                                                    <span>{{ feature }}</span>
+                                                </div>
+                                            </div>
                                         </div>
 
                                         <div>
@@ -87,7 +96,7 @@
                                         </div>
                                     </div>
 
-                                    <v-img :src="require(`@/assets/${project.thumbnail}`)" width="180" class="d-none d-md-block"></v-img>
+                                    <!-- <v-img :src="require(`@/assets/${project.thumbnail}`)" width="280" height="200" class="d-none d-md-flex justify-end"></v-img> -->
                                 </div>
                             </v-card>
                         </v-col>
@@ -117,11 +126,6 @@
             </v-col>
         </v-row>
     </v-col>
-
-        
-    <!-- <v-btn variant="outlined" color="accent" height="45">
-        Download CV
-    </v-btn> -->
 </template>
   
 <script lang="ts">
@@ -142,8 +146,8 @@ setup () {
         [
             { text: 'Angular', icon: 'angular.svg' },
             { text: 'Vue.js', icon: 'vue.svg' },
-            { text: 'Golang', icon: 'go.svg' },
             { text: '.NET Core', icon: 'dotnet.svg' },
+            { text: 'Golang', icon: 'go.svg' },
             { text: 'Angular Material', icon: 'material.svg' },
             { text: 'Vuetify', icon: 'vuetify.svg' },
             { text: 'Bootstrap', icon: 'bootstrap.svg' },
@@ -155,19 +159,28 @@ setup () {
     const projects = ref<any[]>(
         [
             {
-                title: 'IPMMS',
-                subtitle: 'Integrated Planning Management and Monitoring System',
-                content: 'A software solution that assists in planning, monitoring, and managing operations, including strategic planning, budgeting, project management, performance monitoring, and reporting',
-                builtWith: ['Vue.js', 'Pinia', 'Vuetify', 'Golang', 'Fiber', 'MySQL'],
-                thumbnail: 'ipmms.png'
-            },
-            {
                 title: 'DTCMS',
                 subtitle: 'Digital Transformation Center Monitoring System',
-                content: 'a software solution designed to manage requests, tracks multimedia equipment, and monitors software development progress.',
+                features: [
+                    'Google Sign-in',
+                    'Manage requests, monitors software development, and logs security incidents',
+                    'Google Drive API',
+                    'SMS Notifications.'
+                ],
                 builtWith: ['Angular', 'Angular Material', 'Bootstrap', '.NET Core', 'MySQL'],
                 thumbnail: 'dtcms.png'
-            },  
+            },
+            {
+                title: 'IPMMS',
+                subtitle: 'Integrated Planning Management and Monitoring System',
+                features: [
+                    'Google Sign-in',
+                    'Strategic planning, budgeting, and performance monitoring',
+                    'Reporting'
+                ],
+                builtWith: ['Vue.js', 'Pinia', 'Vuetify', 'Golang', 'Fiber', 'Excelize', 'MySQL'],
+                thumbnail: 'ipmms.png'
+            },
         ]
     );
 
@@ -219,4 +232,16 @@ setup () {
             padding: 20px 0px;
         }
     }
+
+    .fade-on-scroll {
+  position: sticky;
+  top: 100px; /* Adjust for how far down you want to start fading */
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+}
+
+/* Fading effect */
+.fade-on-scroll.fade-out {
+  opacity: 0;
+}
 </style>

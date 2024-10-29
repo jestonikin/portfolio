@@ -10,6 +10,7 @@ import * as components from 'vuetify/components'
 const brand = {
   colors: {
     background: "#333333",
+    secondary: '#3b3b3b',
     accent: "#3498DB",
   }
 }
