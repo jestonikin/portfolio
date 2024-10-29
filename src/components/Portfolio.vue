@@ -12,7 +12,7 @@
                         </div>
 
                         <span class="text-body-1 font-weight-light introduction pe-lg-10">
-                            I am a full-stack web developer based from the Philippines with two years of hands-on experience in building dynamic web applications. Driven by curiosity and a commitment to excellence, I thrive on tackling challenges, continuously expanding my skill set, and staying updated with the latest in technology.
+                            I am a full-stack web developer based in the Philippines, with two years of hands-on experience building dynamic web applications. Driven by curiosity and a commitment to excellence, I thrive on tackling challenges, continuously expanding my skill set, and staying updated with the latest in technology.
                         </span>
 
                         <div class="d-flex flex-column ga-5">
