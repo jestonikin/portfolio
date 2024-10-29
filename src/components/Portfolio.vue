@@ -12,11 +12,11 @@
                         </div>
 
                         <span class="text-body-1 font-weight-light introduction pe-lg-10">
-                            I am a full-stack web developer based from the Philippines with two years of hands-on experience in building dynamic web applications. I thrive on tackling challenges, continuously expanding my skill set, and staying updated with the latest in technology.
+                            I am a full-stack web developer based from the Philippines with two years of hands-on experience in building dynamic web applications. Driven by curiosity and a commitment to excellence, I thrive on tackling challenges, continuously expanding my skill set, and staying updated with the latest in technology.
                         </span>
 
-                        <div class="text-grey-lighten-1">
-                            <div class="d-flex align-center ga-4 mb-6">
+                        <div class="d-flex flex-column ga-5">
+                            <div class="d-flex align-center ga-4">
                                 <v-img src="@/assets/avatar.png" width="80"/>
 
                                 <v-divider vertical class="border-opacity-75"/>
@@ -38,25 +38,25 @@
                             </div>
                         </div>
 
-                        <a href="/resume.pdf" download>
+                        <!-- <a href="/resume.pdf" download>
                             <v-btn variant="outlined" color="accent" height="45">
                                 Download CV
                             </v-btn>
-                        </a>
+                        </a> -->
                     </div>
                 </div>
             </v-col>
 
             <v-col cols="12" lg="7" class="fade-on-scroll ">
                 <section>
-                    <p class="text-h6 mb-5">Tech Stack</p>
+                    <p class="text-subtitle-1 text-sm-h6 mb-4">Tech Stack</p>
 
                     <v-row>
                         <v-col v-for="tech in techStack" :key="tech.text" cols="6" sm="3">
                             <v-card height="150" variant="tonal" color="grey-darken-1" class="d-flex align-center justify-center">
                                 <div class="d-flex flex-column align-center ga-3"> 
                                     <v-img :src="require(`@/assets/${tech.icon}`)" height="70" width="70"/>
-                                    <span class="text-white text-grey-lighten-1">{{ tech.text }}</span>
+                                    <span class="text-grey-lighten-1">{{ tech.text }}</span>
                                 </div>
                             </v-card>
                         </v-col>
@@ -64,20 +64,20 @@
                 </section>
 
                 <section>
-                    <p class="text-h6 mb-5">Projects</p>
+                    <p class="text-subtitle-1 text-sm-h6 mb-4">Projects</p>
 
                     <v-row>
                         <v-col v-for="(project, iproject) in projects" :key="iproject" cols="12">
-                            <v-card  color="secondary" class="pa-5">
-                                <div class="d-flex align-start">
-                                    <div class="text-grey-lighten-5 d-flex flex-column ga-8">
+                            <v-card color="secondary" class="pa-4 pa-lg-5">
+                                <v-row>
+                                    <v-col cols="12" md="8" class="d-flex flex-column ga-8">
                                         <div>
-                                            <p class="text-h6">{{ project.title }}</p>
-                                            <span>{{ project.subtitle }}</span>
+                                            <p class="text-subtitle-1 text-sm-h6">{{ project.title }}</p>
+                                            <span class="text-body-2 text-sm-subtitle-1">{{ project.subtitle }}</span>
                                             
                                             <v-divider class="border-opacity-25 my-3"></v-divider>
 
-                                            <div class="d-flex flex-column flex-wrap ga-3 text-body-2 font-weight-light">
+                                            <div class="d-flex flex-column flex-wrap ga-4 text-body-2 font-weight-light">
                                                 <div v-for="feature in project.features" :key="feature" class="d-flex align-center ga-2">
                                                     <v-icon icon="mdi-circle-medium" size="x-small"/>
                                                     <span>{{ feature }}</span>
@@ -94,22 +94,24 @@
                                                 </v-chip>
                                             </div>
                                         </div>
-                                    </div>
+                                    </v-col>
 
-                                    <!-- <v-img :src="require(`@/assets/${project.thumbnail}`)" width="280" height="200" class="d-none d-md-flex justify-end"></v-img> -->
-                                </div>
+                                    <v-col cols="4" class="d-none d-md-flex align-start justify-end">
+                                        <v-img :src="require(`@/assets/${project.thumbnail}`)" max-width="230"/>
+                                    </v-col>
+                                </v-row>
                             </v-card>
                         </v-col>
                     </v-row>
                 </section>
 
                 <section>
-                    <p class="text-h6 mb-5">Experiences</p>
+                    <p class="text-subtitle-1 text-sm-h6 mb-4">Experiences</p>
 
                     <v-row>
                         <v-col v-for="(v, k) in experiences" :key="k" cols="12">
-                            <v-card variant="tonal" color="grey-darken-1">
-                                <div class="text-grey-lighten-5 pa-5">
+                            <v-card color="secondary">
+                                <div class="pa-4 pa-lg-5">
                                     <div class="mb-5">
                                         <p class="text-subtitle-1 text-sm-h6 font-weight-medium mb-2">{{ v.company }}</p>
                                         <span class="text-body-1 font-weight-light">{{ v.position }}</span>
